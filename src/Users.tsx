@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { User } from "./types/User";
+import { User, getAddressStringFromUser } from "./types/User";
 import { Api, API_BASE_URL } from "./Api";
 
 const Users = () => {
@@ -25,8 +25,10 @@ const Users = () => {
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Address</th>
             <th>Phone</th>
             <th>Website</th>
+            <th>Company</th>
           </tr>
         </thead>
         <tbody>
@@ -37,8 +39,10 @@ const Users = () => {
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
+                <td>{getAddressStringFromUser(user)}</td>
                 <td>{user.phone}</td>
                 <td>{user.website}</td>
+                <td>{user.company.name}</td>
               </tr>
             );
           })}

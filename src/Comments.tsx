@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { User } from "./types/User";
+import { Comment } from "./types/Comment";
 import { Api, API_BASE_URL } from "./Api";
 
-const Users = () => {
-  const [users, setUsers] = useState<User[]>([]);
+const Comments = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
     (async () => {
-      const [users, error] = await Api(API_BASE_URL + "/users");
+      const [comments, error] = await Api(API_BASE_URL + "/comments");
       if (error) {
         console.log(`>> error: ${(error as Error).message}`);
         return;
       }
-      setUsers(users);
+      setComments(comments);
     })();
   }, []);
 
@@ -22,23 +22,21 @@ const Users = () => {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Post ID</th>
             <th>Name</th>
-            <th>Username</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Website</th>
+            <th>Body</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => {
+          {comments.map((comment) => {
             return (
               <tr className="hover">
-                <th>{user.id}</th>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
-                <td>{user.website}</td>
+                <th>{comment.id}</th>
+                <td>{comment.postId}</td>
+                <td>{comment.name}</td>
+                <td>{comment.email}</td>
+                <td>{comment.body}</td>
               </tr>
             );
           })}
@@ -48,4 +46,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Comments;

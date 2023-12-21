@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Users from "./Users";
+import Posts from "./Posts";
+import Comments from "./Comments";
 
 enum Tabs {
   Users,
@@ -11,6 +13,10 @@ const renderSwitch = (tab: Tabs): JSX.Element => {
   switch (tab) {
     case Tabs.Users:
       return <Users />;
+    case Tabs.Posts:
+      return <Posts />;
+    case Tabs.Comments:
+      return <Comments />;
     default:
       return <></>;
   }

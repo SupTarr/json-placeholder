@@ -30,8 +30,8 @@ const Posts = () => {
         <tbody>
           {posts.map((post) => {
             return (
-              <tr className="hover">
-                <th>{post.id}</th>
+              <tr key={`post-${post.id}`} className="hover">
+                <td>{post.id}</td>
                 <td>{post.userId}</td>
                 <td>{post.title}</td>
                 <td>{post.body}</td>

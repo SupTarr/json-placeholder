@@ -32,8 +32,8 @@ const Users = () => {
         <tbody>
           {users.map((user) => {
             return (
-              <tr className="hover">
-                <th>{user.id}</th>
+              <tr key={`user-${user.id}`} className="hover">
+                <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>

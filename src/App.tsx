@@ -26,8 +26,8 @@ const App = () => {
   const [tab, setTab] = useState(Tabs.Users);
 
   return (
-    <main>
-      <div role="tablist" className="tabs-boxed tabs">
+    <main className="app m-2">
+      <div role="tablist" className="tabs-boxed tabs mb-3">
         <a
           role="tab"
           className={`tab ${tab === Tabs.Users ? "tab-active" : ""}`}

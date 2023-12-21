@@ -31,12 +31,12 @@ const Comments = () => {
         <tbody>
           {comments.map((comment) => {
             return (
-              <tr className="hover">
-                <th>{comment.id}</th>
+              <tr key={`comment-${comment.id}`} className="hover">
+                <td>{comment.id}</td>
                 <td>{comment.postId}</td>
                 <td>{comment.name}</td>
                 <td>{comment.email}</td>
-                <td>{comment.body}</td>
+                <td className="min-w-[250px]">{comment.body}</td>
               </tr>
             );
           })}
